@@ -3,7 +3,7 @@ const cookieParser = require("cookie-parser");
 const app = express();
 
 const userRouter = require("./routers/user.js");
-// const productRouter = require("./routers/products.js");
+const productRouter = require("./routers/products.js");
 
 app.use(express.json());
 app.use(cookieParser());
@@ -15,4 +15,4 @@ app.get("/", (req, res) => {
   res.send("다형님 최고");
 });
 
-app.use("/api", [userRouter]);
+app.use("/api", [userRouter, productRouter]);
